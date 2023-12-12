@@ -34,13 +34,13 @@ body {
 .cantidad,
 .id-tarea {
     flex: 1;
-
+margin-bottom: 2%;
 }
 
 .cantidad p,
 .id-tarea p {
     margin: 0;
-    margin-left: 10px;
+    margin-left: 20px;
 
 }
 
