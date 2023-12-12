@@ -22,7 +22,7 @@ body {
 .contener-informacion {
     display: flex;
     justify-content: space-between;
-    margin-top: 5%;
+    margin-top: 2%;
     margin-bottom: 3%;
 
 }
@@ -34,7 +34,7 @@ body {
 .cantidad,
 .id-tarea {
     flex: 1;
-margin-bottom: 2%;
+    margin-bottom: 2%;
 }
 
 .cantidad p,
