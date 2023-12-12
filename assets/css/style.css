@@ -1,12 +1,28 @@
-.contenedor-todoList{
-background-color: cadetblue;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
 
+
+.contenedor-todoList {
+    background-color: rgb(3, 76, 82);
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(180, 157, 157);
+}
+
+.full-wid-input {
+    min-width: 30%;
+    margin-left: 20px;
 }
 
 .contener-informacion {
     display: flex;
     justify-content: space-between;
     margin-top: 5%;
+    margin-bottom: 3%;
+
+}
+
+.titulo-form {
+    margin-left: 20px;
 }
 
 .cantidad,
@@ -19,14 +35,9 @@ background-color: cadetblue;
 .id-tarea p {
     margin: 0;
 
+    margin-left: 20px;
 
 }
-
-.cantidad {
-    margin-right: 5%;
-   
-}
-
 
 .id-tarea p {
     display: inline-block;
