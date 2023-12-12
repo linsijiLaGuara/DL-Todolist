@@ -1,15 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
 
+body {
+    margin-left: 2%;
+    margin-right: 6%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(199, 199, 199);
+}
 
 .contenedor-todoList {
     background-color: rgb(3, 76, 82);
-    margin: 0px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(180, 157, 157);
+    margin: 0;
+
 }
 
 .full-wid-input {
     min-width: 30%;
+    max-width: 300px;
     margin-left: 20px;
 }
 
@@ -34,8 +40,7 @@
 .cantidad p,
 .id-tarea p {
     margin: 0;
-
-    margin-left: 20px;
+    margin-left: 10px;
 
 }
 
