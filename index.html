@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todo List</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <menu>
+      <div class="contenedor-todoList">
+        <h1>Todo List</h1>
+
+        <form class="agregar-tarea">
+          <h4>Nueva tarea</h4>
+
+          <input type="text" id="miInput" name="miInput" />
+
+          <button type="submit">agregar</button>
+        </form>
+        <div class="contener-informacion">
+          <div class="cantidad">
+            <p>Total :</p>
+            <p>Realizadas:</p>
+          </div>
+
+          <div class="id-tarea">
+            <p>ID</p>
+            <p>Tarea</p>
+          </div>
+        </div>
+      </div>
+    </menu>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>

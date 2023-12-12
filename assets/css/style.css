@@ -1,0 +1,34 @@
+.contenedor-todoList{
+background-color: cadetblue;
+
+}
+
+.contener-informacion {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+
+.cantidad,
+.id-tarea {
+    flex: 1;
+
+}
+
+.cantidad p,
+.id-tarea p {
+    margin: 0;
+
+
+}
+
+.cantidad {
+    margin-right: 5%;
+   
+}
+
+
+.id-tarea p {
+    display: inline-block;
+    margin: 0 50px;
+}
