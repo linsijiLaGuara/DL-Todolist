@@ -11,18 +11,16 @@
       <div class="contenedor-todoList">
         <h1 class="titulo-form">Todo List</h1>
 
-        <form class="agregar-tarea">
+        <div class="agregar-tarea">
           <h4 class="titulo-form">Nueva tarea</h4>
 
           <input
             class="full-wid-input"
-            type="text"
-            id="miInput"
-            name="miInput"
-          />
+                   id="full-wid-input"
+                 />
 
-          <button type="submit">Agregar</button>
-        </form>
+          <button id="addboton" onclick="addtask()" >Agregar</button>
+        </div>
         <div class="contener-informacion">
           <div class="cantidad">
             <p>Total :</p>
@@ -35,6 +33,8 @@
                 
     
         </div>
+        <ul id="boxList">
+        </ul>
       </div>
     </menu>
     <script src="./assets/js/script.js"></script>
