@@ -46,5 +46,24 @@ body {
 
 .id-tarea p {
     display: inline-block;
-    margin: 0 50px;
+    margin: 0 30px;
 }
+
+/* ... (Tu código existente) ... */
+
+.boxList {
+    list-style: none;
+    padding: 0;
+}
+
+.boxList li {
+    display: inline-block;
+    margin: 0 30px;
+
+}
+ul {
+    padding:0px;
+    padding-left: 10px;
+}
+
+/* ... (Tu código existente) ... */
