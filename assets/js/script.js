@@ -1,5 +1,3 @@
-
-
 lista = [
   {
     id: 1,
@@ -20,21 +18,22 @@ lista = [
     tareaEliminada: false,
   },
 ];
-contador = lista.length ;
+contadorTotalTareas = lista.length;
+contadorId = lista.length +1
 var contadorTerminados = 0;
 
 function addtask() {
   const addinput = document.getElementById("full-wid-input").value;
   let nuevaTarea = {
-    id: contador,
+    id: contadorId,
     nombreTarea: addinput,
     tareaTerminada: false,
     tareaEliminada: false,
   };
 
   lista.push(nuevaTarea);
-  contador++;
-  mostar();
+  contadorId++;
+  mostrar();
 }
 
 function renderizarListaHtml(tarea) {
@@ -42,12 +41,16 @@ function renderizarListaHtml(tarea) {
   let id = "<li> " + tarea.id + "</li>";
   let tareas = "<li> " + tarea.nombreTarea + "</li>";
   let selccion =
-    "<input type='checkbox' name= '"+tarea.id+"' id='" +
+    "<input type='checkbox' name= '" +
+    tarea.id +
+    "' id='" +
     tarea.id +
     "' onchange ='marcarTareatareminada(" +
     tarea.id +
-    ")' "+ (tarea.tareaTerminada?'checked':'')+">";
-
+    ")' " +
+    (tarea.tareaTerminada ? "checked" : "") +
+    ">";
+   
   let borar =
     "<li onclick= 'borrarTarea(" +
     tarea.id +
@@ -56,18 +59,20 @@ function renderizarListaHtml(tarea) {
 
   return inicial + id + tareas + selccion + borar + final;
 }
-function mostar() {
+function mostrar() {
   let datos = "";
+  document.getElementById("full-wid-input").value = ""
   for (const tarea of lista) {
     if (tarea.tareaEliminada == false) {
       datos += renderizarListaHtml(tarea);
-      
     }
   }
   document.getElementById("boxList").innerHTML = datos;
-  document.getElementById("total-tareas").innerHTML = contador;
+  contarTotalTareas()
+  document.getElementById("total-tareas").innerHTML = contadorTotalTareas;
   contarRealizadas();
   document.getElementById("total-realizada").innerHTML = contadorTerminados;
+  console.log(lista)
 }
 
 function borrarTarea(id) {
@@ -77,10 +82,10 @@ function borrarTarea(id) {
 
   if (confirmacion) {
     const index = lista.findIndex((lista) => lista.id === id);
-    lista.tareaEliminada = true;
+
     lista[index].tareaEliminada = true;
-    contador --;
-    mostar();
+    contadorTotalTareas--;
+    mostrar();
   }
 }
 
@@ -93,14 +98,22 @@ function contarRealizadas() {
   }
 }
 
+function contarTotalTareas() {
+  contadorTotalTareas = 0;
+  for (const tarea of lista) {
+    if (tarea.tareaEliminada == false) {
+      contadorTotalTareas += 1;
+    }
+  }
+}
 function marcarTareatareminada(id) {
   const index = lista.findIndex((lista) => lista.id === id);
 
   lista[index].tareaTerminada = !lista[index].tareaTerminada;
-  
-  mostar();
+
+  mostrar();
 
   console.log(lista);
 }
 
-mostar();
+mostrar();
