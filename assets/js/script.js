@@ -1,4 +1,4 @@
-//const addboton = document.getElementById("addboton").innerHTML
+
 
 lista = [
   {
@@ -20,8 +20,8 @@ lista = [
     tareaEliminada: false,
   },
 ];
-contador = 1;
-//crear un fucion que agregue elementos a la lista atraves de input haciendi clic en el boton
+contador = lista.length ;
+var contadorTerminados = 0;
 
 function addtask() {
   const addinput = document.getElementById("full-wid-input").value;
@@ -35,7 +35,6 @@ function addtask() {
   lista.push(nuevaTarea);
   contador++;
   mostar();
-  // renderizar donde se muentran los item de la lista
 }
 
 function renderizarListaHtml(tarea) {
@@ -43,11 +42,11 @@ function renderizarListaHtml(tarea) {
   let id = "<li> " + tarea.id + "</li>";
   let tareas = "<li> " + tarea.nombreTarea + "</li>";
   let selccion =
-    "<input type='checkbox' name=' id='" +
+    "<input type='checkbox' name= '"+tarea.id+"' id='" +
     tarea.id +
-    "onchange= 'onChange('" +
+    "' onchange ='marcarTareatareminada(" +
     tarea.id +
-    ") >";
+    ")' "+ (tarea.tareaTerminada?'checked':'')+">";
 
   let borar =
     "<li onclick= 'borrarTarea(" +
@@ -59,14 +58,16 @@ function renderizarListaHtml(tarea) {
 }
 function mostar() {
   let datos = "";
-
   for (const tarea of lista) {
     if (tarea.tareaEliminada == false) {
       datos += renderizarListaHtml(tarea);
+      
     }
   }
   document.getElementById("boxList").innerHTML = datos;
-  document.getElementById("total-tareas").innerHTML = lista.length;
+  document.getElementById("total-tareas").innerHTML = contador;
+  contarRealizadas();
+  document.getElementById("total-realizada").innerHTML = contadorTerminados;
 }
 
 function borrarTarea(id) {
@@ -77,9 +78,29 @@ function borrarTarea(id) {
   if (confirmacion) {
     const index = lista.findIndex((lista) => lista.id === id);
     lista.tareaEliminada = true;
-
+    lista[index].tareaEliminada = true;
+    contador --;
     mostar();
-    console.log(index);
   }
 }
+
+function contarRealizadas() {
+  contadorTerminados = 0;
+  for (const tarea of lista) {
+    if (tarea.tareaTerminada == true && tarea.tareaEliminada == false) {
+      contadorTerminados += 1;
+    }
+  }
+}
+
+function marcarTareatareminada(id) {
+  const index = lista.findIndex((lista) => lista.id === id);
+
+  lista[index].tareaTerminada = !lista[index].tareaTerminada;
+  
+  mostar();
+
+  console.log(lista);
+}
+
 mostar();
